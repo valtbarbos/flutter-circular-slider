@@ -113,7 +113,6 @@ double percentageToAngle(double percentage, double angleRange) {
   return percentage * step;
 }
 
-double _lastValue = 0;
 double angleToValue(
   double angle,
   double min,
