@@ -18,7 +18,7 @@ class SleekCircularSlider extends StatefulWidget {
   final double initialValue;
   final double min;
   final double max;
-  final List<double> range;
+  final List<double> range;//Todo(v):
   final CircularSliderAppearance appearance;
   final OnChange onChange;
   final OnChange onChangeStart;
@@ -35,7 +35,7 @@ class SleekCircularSlider extends StatefulWidget {
       this.initialValue = 50,
       this.min = 0,
       this.max = 100,
-      this.range = const [],
+      this.range = const [],//Todo(v):
       this.appearance = defaultAppearance,
       this.onChange,
       this.onChangeStart,
@@ -46,8 +46,8 @@ class SleekCircularSlider extends StatefulWidget {
         assert(max != null),
         assert(min <= max),
         assert(initialValue >= min && initialValue <= max),
-        // assert(range[0] == null || range[0] == min),
-        // assert(range[range.length] == null || range[range.length] == max),
+        // assert(range[0] == null || range[0] == min), //Todo(v):
+        // assert(range[range.length] == null || range[range.length] == max), //Todo(v):
         assert(appearance != null),
         super(key: key);
   @override
@@ -185,7 +185,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider> with SingleTi
 
   void _updateOnChange() {
     if (widget.onChange != null) {
-      final value = angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range);
+      final value = angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range);//Todo(v):
       widget.onChange(value);
     }
   }
@@ -214,7 +214,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider> with SingleTi
     if (widget.appearance.spinnerMode) {
       return null;
     }
-    final value = angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range);
+    final value = angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range);//Todo(v):
     final childWidget = widget.innerWidget != null
         ? widget.innerWidget(value)
         : SliderLabel(
@@ -237,7 +237,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider> with SingleTi
   void _onPanEnd(Offset details) {
     _handlePan(details, true);
     if (widget.onChangeEnd != null) {
-      widget.onChangeEnd(angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range));
+      widget.onChangeEnd(angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range));//Todo(v):
     }
 
     _isHandlerSelected = false;
@@ -272,7 +272,7 @@ class _SleekCircularSliderState extends State<SleekCircularSlider> with SingleTi
     if (isPointAlongCircle(position, _painter.center, _painter.radius, touchWidth)) {
       _isHandlerSelected = true;
       if (widget.onChangeStart != null) {
-        widget.onChangeStart(angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range));
+        widget.onChangeStart(angleToValue(_currentAngle, widget.min, widget.max, _angleRange, widget.range));//Todo(v):
       }
       _onPanUpdate(details);
     } else {

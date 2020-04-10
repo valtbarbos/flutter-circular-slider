@@ -6,7 +6,7 @@ class ExampleViewModel {
   final CircularSliderAppearance appearance;
   final double min;
   final double max;
-  final List<double> range;
+  final List<double> range; //Todo(v):
   final double value;
   final InnerWidget innerWidget;
 
@@ -36,7 +36,7 @@ class ExamplePage extends StatelessWidget {
             appearance: viewModel.appearance,
             min: viewModel.min,
             max: viewModel.max,
-            range: viewModel.range,
+            range: viewModel.range, //Todo(v):
             initialValue: viewModel.value,
           )),
         ),
