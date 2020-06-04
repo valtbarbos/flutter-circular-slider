@@ -46,12 +46,12 @@ class _CurvePainter extends CustomPainter {
       ..strokeWidth = appearance.progressBarWidth;
     drawCircularArc(canvas: canvas, size: size, paint: progressBarPaint);
 
-    var dotPaint = Paint()..color = appearance.dotColor;
+    var dotPaint = Paint()..shader = progressBarGradient.createShader(progressBarRect);
 
     final currentAngle = appearance.counterClockwise ? -angle : angle;
 
     Offset handler = degreesToCoordinates(center, -math.pi / 2 + startAngle + currentAngle + 1.5, radius);
-    canvas.drawCircle(handler, appearance.handlerSize + 10, dotPaint);
+    canvas.drawCircle(handler, appearance.handlerSize, dotPaint);
   }
 
   drawCircularArc({@required Canvas canvas, @required Size size, @required Paint paint, bool ignoreAngle = false, bool spinnerMode = false}) {
